@@ -1,0 +1,27 @@
+h1 {
+    color: lightseagreen;
+    font: bold;
+    font-size: 30;
+    font-style: normal;
+    text-transform: uppercase;
+    text-align: center;
+    }
+
+button {
+
+    font-size: large;
+    color: blueviolet;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+body {
+
+    background-image: url("./fonster.jpeg");
+    background-repeat: repeat;
+    background-position-x: center;
+}
