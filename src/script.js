@@ -14,7 +14,7 @@ nextButton.addEventListener('click', () => {
 
 function startGame() {
   startButton.classList.add('hide')
-  shuffledQuestions = questions.sort(() => Math.random() - .5)
+  shuffledQuestions = questions.sort(() => Math.random() - 0.5)
   currentQuestionIndex = 0
   questionContainerElement.classList.remove('hide')
   setNextQuestion()
@@ -27,7 +27,7 @@ function setNextQuestion() {
 
 function showQuestion(question) {
   questionElement.innerText = question.question
-  question.answers.forEach(answer => {
+  question.answers.forEach((answer) => {
     const button = document.createElement('button')
     button.innerText = answer.text
     button.classList.add('btn')
@@ -51,7 +51,7 @@ function selectAnswer(e) {
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
   setStatusClass(document.body, correct)
-  Array.from(answerButtonsElement.children).forEach(button => {
+  Array.from(answerButtonsElement.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct)
   })
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
@@ -75,15 +75,66 @@ function clearStatusClass(element) {
   element.classList.remove('correct')
   element.classList.remove('wrong')
 }
-const question = [
-    {
-       question: 'Vad heter Rumäniens huvudstad',
-       answers: [
-           { text: 'Bukarest', correct: true},
-           { text: 'Sofia', correct: false},
-           { text: 'Köpenhamn', correct: false},
-           { text: 'Budapest', correct: false}
 
-       ] 
-    }
+const questions = [
+  {
+    question: 'Vad heter Rumäniens huvudstad?',
+    answers: [
+      { text: 'Bukarest', correct: true },
+      { text: 'Sofia', correct: false },
+      { text: 'Köpenhamn', correct: false },
+      { text: 'Budapest', correct: false },
+    ],
+  },
+
+  {
+    question: 'Vad hette den andra mannen på månen?',
+    answers: [
+      { text: 'Buzz Lightyear', correct: false },
+      { text: 'Buzz the Fuzz', correct: false },
+      { text: 'Genombussige Bert', correct: false},
+      { text: 'Buzz Aldrin', correct: true}
+    ],
+  },
+  {
+    question: 'Vilket år föddes Baby Hitler?',
+    answers: [
+      { text: '1889', correct: true },
+      { text: '2001', correct: false },
+      { text: '1909', correct: false },
+      { text: '1768', correct: false },
+    ],
+  },
+  {
+    question: 'Hur känns det att få en 16 tons vikt i huvudet?',
+    answers: [
+      { text: 'Lite jobbigt', correct: false },
+      { text: 'Aj', correct: true },
+      { text: 'Oskönt', correct: false },
+      { text: 'Venne', correct: false },
+    ],
+  },
+  {
+    question: 'Vad är summan av 45 och 46?',
+    answers: [
+      { text: '90', correct: false },
+      { text: '91', correct: true },
+      { text: '81', correct: false },
+      { text: '-1', correct: false},
+
+    ],
+  },
 ]
+
+//const question = [
+//    {
+//       question: 'Vad heter Rumäniens huvudstad',
+//       answers: [
+//           { text: 'Bukarest', correct: true},
+//           { text: 'Sofia', correct: false},
+//           { text: 'Köpenhamn', correct: false},
+//           { text: 'Budapest', correct: false}
+//
+//       ]
+//    }
+//  ]
